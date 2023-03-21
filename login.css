@@ -1,0 +1,30 @@
+@charset "utf-8";
+ form {width : 500px;}
+ h1{
+  color:#1bdb1b;
+  font-size:48px;
+  letter-spacing:-3px;
+  text-align:center;
+  margin:120px 0 80px 0 ;
+  transition:.2s linear;
+}
+  
+
+  #start_button{
+    position: absolute;
+    left: 40%;
+    top: 80%;
+  }
+  
+
+  .member{
+    width: 400px;
+    /* border: 1px solid #000; */
+    margin: auto; /*중앙 정렬*/
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+a {
+  text-decoration-line: none;
+  color: inherit;
+}  

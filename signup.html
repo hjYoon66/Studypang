@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>회원가입</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #sign_up_box {
+      width: 375px;
+      height: 225px;
+      border: solid 2px gray;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -200px;
+      margin-top: -100px;
+      background-color: orange;
+    }
+
+    #sign_up_button {
+      position: absolute;
+      left: 40%;
+      top: 80%;
+    }
+  </style>
+  <script>
+      function passwordCheck() {
+      var pw = document.getElementById("pw").value;
+      var pw_ck = document.getElementById("pw_ck").value;
+      var id_ch = document.getElementById("id_ch").value;
+      var nik_ch = document.getElementById("nik_ch").value;
+      if (pw == "") {
+        alert("비밀번호를 입력해주세요.");
+      }
+      else if (pw != pw_ck) {
+        alert("비밀번호가 일치하지 않습니다 확인해 주세요.");
+      }
+      else {
+        document.getElementById("sign").submit();
+
+      }
+    }
+
+  function checkid(){
+   var userid = document.getElementById("u_id").value;
+   if(userid)  //userid로 받음
+   {
+      url = "check_id.php?userid="+userid;
+      window.open(url,"chkid","width=400,height=200");
+   } else {
+      alert("아이디를 입력하세요.");
+   }
+}
+
+function decide(){
+   document.getElementById("u_id").value = document.getElementById("uid").value
+   document.getElementById("u_id").disabled = true
+   document.getElementById("signup_button").disabled = false
+   document.getElementById("check_button").value = "다른 ID로 변경"
+   document.getElementById("check_button").setAttribute("onclick", "change()")
+}
+
+function change(){
+   document.getElementById("u_id").disabled = false
+   document.getElementById("uid").value = ""
+   document.getElementById("join_button").disabled = true
+   document.getElementById("check_button").value = "ID 중복 검사"
+   document.getElementById("check_button").setAttribute("onclick", "checkid()")
+}
+</script>
+</head>
+
+<body>
+  <div id="sign_up_box">
+    <form action="signup_cheak.php" method="post" id="sign">
+      <table>
+        <tr>
+          <td>아이디</td>
+          <td>
+            <input type="text" name="u_id">
+          </td>
+          <td>
+            </form>
+            </td>
+        </tr>
+        
+        <tr>
+          <td>비밀번호</td>
+          <td>
+            <input type="password" name="u_password">
+          </td>
+        </tr>
+        <tr>
+          <td>비밀번호 확인</td>
+          <td>
+            <input type="password" name="pw_ck">
+          </td>
+        </tr>
+        <tr>
+          <td>이름</td>
+          <td>
+            <input type="text" name="u_name">
+          </td>
+        </tr>
+        <tr>
+          <td>생년월일(6자리)</td>
+          <td>
+            <input type="text" name="u_birth">
+          </td>
+        </tr>
+        <tr>
+          <td>E-mail</td>
+          <td>
+            <input type="text" name="u_email">
+          </td>
+        </tr>
+        <tr>
+          <td>전화번호(-제외)</td>
+          <td>
+            <input type="text" name="u_phone">
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <a href="login.php"><button id="signup_button" type="submit" name="button" align="right"
+              >가입</button></a>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</body>
+</html>
